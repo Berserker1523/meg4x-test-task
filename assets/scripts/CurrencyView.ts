@@ -8,19 +8,19 @@ export class CurrencyView extends Component {
     @property({ type: Label })
     private currencyLabel: Label | null = null;
 
-    private currencyModel: CurrencyModel | null = null;
+    private currencyModel: CurrencyModel = null!;
 
     protected onLoad(): void {
-        this.currencyModel = find("CurrencyModel")!.getComponent(CurrencyModel);
+        this.currencyModel = find("CurrencyModel")!.getComponent(CurrencyModel)!;
     }
 
     protected start(): void {
-        this.handleCurrentCurrencySet(this.currencyModel!.CurrentCurrency);
-        this.currencyModel?.node.on(CurrencyModel.CurrentCurrencySetEventName, this.handleCurrentCurrencySet, this);
+        this.handleCurrentCurrencySet(this.currencyModel.CurrentCurrency);
+        this.currencyModel.node.on(CurrencyModel.CurrentCurrencySetEventName, this.handleCurrentCurrencySet, this);
     }
 
     protected onDestroy(): void {
-        this.currencyModel?.node.off(CurrencyModel.CurrentCurrencySetEventName, this.handleCurrentCurrencySet, this);
+        this.currencyModel.node.off(CurrencyModel.CurrentCurrencySetEventName, this.handleCurrentCurrencySet, this);
     }
 
     private handleCurrentCurrencySet = (newCurrency: number) => {

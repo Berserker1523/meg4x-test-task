@@ -2,7 +2,7 @@ import { _decorator, Component } from 'cc';
 import heroesJson from '../settings/heroes.json';
 const { ccclass } = _decorator;
 
-interface Hero {
+export interface Hero {
     id: string;
     name: string;
     description: string;
@@ -12,19 +12,21 @@ interface Hero {
     rank: string;
 }
 
-interface Heroes {
-    heroes: Hero[];
-}
-
 @ccclass('HeroesModel')
 export class HeroesModel extends Component {
 
-    private heroes: Heroes = null!;
+    private heroes: Hero[] = [];
 
-    start() {
-        this.heroes = heroesJson;
+    public get Heroes() : Hero[] {
+        return this.heroes;
+    }
+
+    protected onLoad(): void {
+        this.heroes = heroesJson.heroes;
+    }
+
+    protected start(): void {
+        console.log("HeroesModel heroes:");
         console.log(this.heroes);
     }
 }
-
-
