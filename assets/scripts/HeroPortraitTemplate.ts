@@ -5,26 +5,23 @@ const { ccclass, property } = _decorator;
 export class HeroPortraitTemplate extends Component {
 
     @property({ type: Sprite })
-    private heroSprite: Sprite | null = null;
+    private heroSprite: Sprite = null!;
 
     @property({ type: Sprite })
-    private rankSprite: Sprite | null = null;
+    private rankSprite: Sprite = null!;
 
     @property({ type: Sprite })
-    private typeSprite: Sprite | null = null;
+    private typeSprite: Sprite = null!;
 
     public setHeroSprite(spriteFrame: SpriteFrame | null): void {
-        if (this.heroSprite)
-            this.heroSprite.spriteFrame = spriteFrame;
+        this.heroSprite.spriteFrame = spriteFrame;
     }
 
     public setRankSprite(spriteFrame: SpriteFrame | null): void {
-        if (this.rankSprite)
-            this.rankSprite.spriteFrame = spriteFrame;
+        this.rankSprite.spriteFrame = spriteFrame;
     }
 
     public setTypeSprite(spriteFrame: SpriteFrame | null): void {
-        if (this.typeSprite)
-            this.typeSprite.spriteFrame = spriteFrame;
+        this.typeSprite.spriteFrame = spriteFrame;
     }
 }

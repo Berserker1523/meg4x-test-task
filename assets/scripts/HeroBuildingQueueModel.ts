@@ -1,6 +1,7 @@
 import { _decorator, Component, find } from 'cc';
 import { CurrencyModel } from './CurrencyModel';
 import { Hero } from './HeroesModel';
+import { SummonedHeroesModel } from './SummonedHeroesModel';
 const { ccclass } = _decorator;
 
 @ccclass('HeroBuildingQueueModel')
@@ -14,6 +15,7 @@ export class HeroBuildingQueueModel extends Component {
     private readonly timerUpdateSeconds = 0.2;
 
     private currencyModel: CurrencyModel = null!;
+    private summonedHeroesModel: SummonedHeroesModel = null!;
 
     private enqueuedHeroes: Hero[] = [];
     private currentSummoningHeroRemainingTime = 0;
@@ -28,6 +30,7 @@ export class HeroBuildingQueueModel extends Component {
 
     protected onLoad(): void {
         this.currencyModel = find("CurrencyModel")!.getComponent(CurrencyModel)!;
+        this.summonedHeroesModel = find("SummonedHeroesModel")!.getComponent(SummonedHeroesModel)!;
     }
 
     public buildHero(heroData: Hero) {
@@ -52,9 +55,12 @@ export class HeroBuildingQueueModel extends Component {
 
             if (this.currentSummoningHeroRemainingTime <= 0) {
                 this.unschedule(this.updateSummonTimer);
-                const heroRemoved = this.enqueuedHeroes.shift();
+                const heroRemoved: Hero | undefined = this.enqueuedHeroes.shift();
+
+                if (heroRemoved)
+                    this.summonedHeroesModel.addSummonedHero(heroRemoved);
+
                 this.node.emit(HeroBuildingQueueModel.HeroRemovedEventName, heroRemoved);
-                // TODO: Add hero to collection
 
                 if (this.enqueuedHeroes.length > 0)
                     this.runSummonTimer();
