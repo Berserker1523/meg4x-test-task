@@ -13,18 +13,18 @@ export class HeroPortraitTemplate extends Component {
     @property({ type: Sprite })
     private typeSprite: Sprite | null = null;
 
-    public setHeroSprite(spriteFrame: SpriteFrame) : void {
-        if(this.heroSprite)
+    public setHeroSprite(spriteFrame: SpriteFrame): void {
+        if (this.heroSprite)
             this.heroSprite.spriteFrame = spriteFrame;
     }
 
-    public setRankSprite(spriteFrame: SpriteFrame) : void {
-        if(this.rankSprite)
+    public setRankSprite(spriteFrame: SpriteFrame): void {
+        if (this.rankSprite)
             this.rankSprite.spriteFrame = spriteFrame;
     }
 
-    public setTypeSprite(spriteFrame: SpriteFrame) : void {
-        if(this.typeSprite)
+    public setTypeSprite(spriteFrame: SpriteFrame): void {
+        if (this.typeSprite)
             this.typeSprite.spriteFrame = spriteFrame;
     }
 }
