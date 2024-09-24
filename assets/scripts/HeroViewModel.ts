@@ -13,7 +13,7 @@ export class HeroViewModel extends Component {
         return this.heroData;
     }
 
-    public set HeroData(heroData: Hero) {
+    public set HeroData(heroData: Hero | null) {
         this.heroData = heroData;
         this.node.emit(HeroViewModel.HeroDataSetEventName, heroData);
     }

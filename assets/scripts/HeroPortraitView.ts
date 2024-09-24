@@ -35,10 +35,8 @@ export class HeroPortraitView extends Component {
     }
 
     private handleHeroDataSet = (heroData: Hero | null) => {
-        if (!heroData)
-            return;
-        this.heroPortraitTemplate.setHeroSprite(this.heroesSpritesViewModel.getHeroSpriteFrame(heroData.id)!);
-        this.heroPortraitTemplate.setRankSprite(this.ranksSpritesViewModel.getRankSpriteFrame(heroData.rank)!);
-        this.heroPortraitTemplate.setTypeSprite(this.typesSpritesViewModel.getTypeSpriteFrame(heroData.type)!);
+        this.heroPortraitTemplate.setHeroSprite(heroData ? this.heroesSpritesViewModel.getHeroSpriteFrame(heroData.id) : null);
+        this.heroPortraitTemplate.setRankSprite(heroData ? this.ranksSpritesViewModel.getRankSpriteFrame(heroData.rank) : null);
+        this.heroPortraitTemplate.setTypeSprite(heroData ? this.typesSpritesViewModel.getTypeSpriteFrame(heroData.type) : null);
     };
 }
