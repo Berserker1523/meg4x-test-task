@@ -1,5 +1,5 @@
 import { _decorator, Component, find, Node } from 'cc';
-import { TowerViewModel } from './TowerViewModel';
+import { TowerVisibilityViewModel } from './TowerVisibilityViewModel';
 const { ccclass, property } = _decorator;
 
 @ccclass('TowerVisibilityView')
@@ -8,19 +8,19 @@ export class TowerVisibilityView extends Component {
     @property({ type: Node })
     private towerUI: Node = null!;
 
-    private towerViewModel : TowerViewModel = null!;
+    private towerVisibilityViewModel : TowerVisibilityViewModel = null!;
 
     protected onLoad(): void {
-        this.towerViewModel = find("TowerViewModel")!.getComponent(TowerViewModel)!;
+        this.towerVisibilityViewModel = find("TowerVisibilityViewModel")!.getComponent(TowerVisibilityViewModel)!;
     }
 
     protected start(): void {
-        this.handleActiveSet(this.towerViewModel.IsActive);
-        this.towerViewModel.node.on(TowerViewModel.ActiveSetEventName, this.handleActiveSet, this);
+        this.handleActiveSet(this.towerVisibilityViewModel.IsActive);
+        this.towerVisibilityViewModel.node.on(TowerVisibilityViewModel.ActiveSetEventName, this.handleActiveSet, this);
     }
 
     protected onDestroy(): void {
-        this.towerViewModel.node.off(TowerViewModel.ActiveSetEventName, this.handleActiveSet, this);
+        this.towerVisibilityViewModel.node.off(TowerVisibilityViewModel.ActiveSetEventName, this.handleActiveSet, this);
     }
 
     private handleActiveSet = (isActive : boolean) => {

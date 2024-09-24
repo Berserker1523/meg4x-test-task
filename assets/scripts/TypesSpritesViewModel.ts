@@ -16,9 +16,8 @@ export class TypesSpritesViewModel extends Component {
     @property({ type: SpriteFrame })
     private windSprite: SpriteFrame = null!;
 
-    public getTypeSpriteFrame(type: string) : SpriteFrame | null {
-        switch(type)
-        {
+    public getTypeSpriteFrame(type: string): SpriteFrame | null {
+        switch (type) {
             case "earth":
                 return this.earthSprite;
 

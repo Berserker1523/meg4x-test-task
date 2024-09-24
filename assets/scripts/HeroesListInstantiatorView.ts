@@ -30,7 +30,7 @@ export class HeroesListInstantiatorView extends Component {
                 return;
 
             this.node.addChild(heroPortraitNode);
-            
+
             heroViewModel = heroPortraitNode.getComponent(HeroViewModel);
             if (!heroViewModel)
                 return;

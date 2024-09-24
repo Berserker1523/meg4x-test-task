@@ -11,7 +11,7 @@ export class HeroToggleViewModel extends Component {
 
     private heroesListToggleViewModel: HeroesListToggleViewModel = null!;
 
-    public get IsSelected() : boolean{
+    public get IsSelected(): boolean {
         return this.isSelected;
     }
 

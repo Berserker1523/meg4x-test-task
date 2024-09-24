@@ -19,9 +19,8 @@ export class RanksSpritesViewModel extends Component {
     @property({ type: SpriteFrame })
     private rankSSprite: SpriteFrame = null!;
 
-    public getRankSpriteFrame(rank: string) : SpriteFrame | null {
-        switch(rank)
-        {
+    public getRankSpriteFrame(rank: string): SpriteFrame | null {
+        switch (rank) {
             case "a":
                 return this.rankASprite;
 

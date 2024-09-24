@@ -40,7 +40,8 @@ export class HeroBuildingQueueViewModel extends Component {
         for (; i < this.heroBuildingQueueModel.EnqueuedHeroes.length; i++)
             this.heroBuildingItems[i].HeroData = this.heroBuildingQueueModel.EnqueuedHeroes[i];
 
-        for (let j = i; j < this.heroBuildingItems.length; j++)
-            this.heroBuildingItems[i].HeroData = null;
+        let j = i;
+        for (; j < this.heroBuildingItems.length; j++)
+            this.heroBuildingItems[j].HeroData = null;
     }
 }

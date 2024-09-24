@@ -9,12 +9,12 @@ const { ccclass } = _decorator;
 
 @ccclass('HeroPortraitView')
 export class HeroPortraitView extends Component {
-    
+
     private heroesSpritesViewModel: HeroesSpritesViewModel = null!
     private ranksSpritesViewModel: RanksSpritesViewModel = null!
     private typesSpritesViewModel: TypesSpritesViewModel = null!
 
-    private heroViewModel : HeroViewModel = null!;
+    private heroViewModel: HeroViewModel = null!;
     private heroPortraitTemplate: HeroPortraitTemplate = null!;
 
     protected onLoad(): void {

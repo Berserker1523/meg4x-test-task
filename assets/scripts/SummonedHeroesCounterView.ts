@@ -20,7 +20,7 @@ export class SummonedHeroesCounterView extends Component {
     }
 
     protected onDestroy(): void {
-        this.summonedHeroesModel.node.on(SummonedHeroesModel.HeroAddedEventName, this.handleHeroAdded, this);
+        this.summonedHeroesModel.node.off(SummonedHeroesModel.HeroAddedEventName, this.handleHeroAdded, this);
     }
 
     private handleHeroAdded = () => {

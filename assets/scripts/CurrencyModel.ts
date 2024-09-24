@@ -9,7 +9,7 @@ export class CurrencyModel extends Component {
 
     private currentCurrency = 0;
 
-    public get CurrentCurrency() : number{
+    public get CurrentCurrency(): number {
         return this.currentCurrency;
     }
 
@@ -20,9 +20,5 @@ export class CurrencyModel extends Component {
 
     protected onLoad(): void {
         this.currentCurrency = initialStateJson.state.currency;
-    }
-
-    protected start(): void {
-        console.log(`CurrencyModel currentCurrency ${this.currentCurrency}`);
     }
 }

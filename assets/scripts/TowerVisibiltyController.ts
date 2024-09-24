@@ -1,5 +1,5 @@
 import { _decorator, Component, Button, find } from 'cc';
-import { TowerViewModel } from './TowerViewModel';
+import { TowerVisibilityViewModel } from './TowerVisibilityViewModel';
 const { ccclass } = _decorator;
 
 @ccclass('TowerVisibiltyController')
@@ -7,11 +7,11 @@ export class TowerVisibiltyController extends Component {
 
     private button: Button = null!;
 
-    private towerViewModel : TowerViewModel = null!;
+    private towerVisibilityViewModel : TowerVisibilityViewModel = null!;
 
     protected onLoad(): void {
         this.button = this.node.getComponent(Button)!;
-        this.towerViewModel = find("TowerViewModel")!.getComponent(TowerViewModel)!;
+        this.towerVisibilityViewModel = find("TowerVisibilityViewModel")!.getComponent(TowerVisibilityViewModel)!;
     }
 
     protected start(): void {
@@ -23,6 +23,6 @@ export class TowerVisibiltyController extends Component {
     }
 
     private handleButtonClicked = () => {
-        this.towerViewModel.IsActive = !this.towerViewModel.IsActive;
+        this.towerVisibilityViewModel.IsActive = !this.towerVisibilityViewModel.IsActive;
     };
 }

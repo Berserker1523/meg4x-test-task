@@ -1,8 +1,8 @@
 import { _decorator, Component } from 'cc';
 const { ccclass } = _decorator;
 
-@ccclass('TowerViewModel')
-export class TowerViewModel extends Component {
+@ccclass('TowerVisibilityViewModel')
+export class TowerVisibilityViewModel extends Component {
     public static readonly ActiveSetEventName = "ActiveSet";
 
     private isActive = false;
@@ -13,6 +13,6 @@ export class TowerViewModel extends Component {
 
     public set IsActive(isActive : boolean) {
         this.isActive = isActive;
-        this.node.emit(TowerViewModel.ActiveSetEventName, isActive);
+        this.node.emit(TowerVisibilityViewModel.ActiveSetEventName, isActive);
     }
 }

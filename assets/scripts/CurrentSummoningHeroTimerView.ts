@@ -5,11 +5,11 @@ const { ccclass, property } = _decorator;
 
 @ccclass('CurrentSummoningHeroTimerView')
 export class CurrentSummoningHeroTimerView extends Component {
-    
+
     @property({ type: Sprite })
     private sliderSprite: Sprite = null!;
 
-    private heroBuildingQueueModel : HeroBuildingQueueModel = null!;
+    private heroBuildingQueueModel: HeroBuildingQueueModel = null!;
 
     protected onLoad(): void {
         this.heroBuildingQueueModel = find("HeroBuildingQueueModel")!.getComponent(HeroBuildingQueueModel)!;
@@ -21,18 +21,17 @@ export class CurrentSummoningHeroTimerView extends Component {
     }
 
     protected onDisable(): void {
-        this.heroBuildingQueueModel.node.on(HeroBuildingQueueModel.CurrentHeroSummonRemainingTimeSetEventName, this.handleCurrentHeroSummonRemainingTimeSet, this);
+        this.heroBuildingQueueModel.node.off(HeroBuildingQueueModel.CurrentHeroSummonRemainingTimeSetEventName, this.handleCurrentHeroSummonRemainingTimeSet, this);
     }
 
-    private handleCurrentHeroSummonRemainingTimeSet = (currentSummoningHeroRemainingTime : number) => {
+    private handleCurrentHeroSummonRemainingTimeSet = (currentSummoningHeroRemainingTime: number) => {
 
-        if(this.heroBuildingQueueModel.EnqueuedHeroes.length == 0)
-        {
+        if (this.heroBuildingQueueModel.EnqueuedHeroes.length == 0) {
             this.removeSlider();
             return;
         }
 
-        const hero : Hero = this.heroBuildingQueueModel.EnqueuedHeroes[0];
+        const hero: Hero = this.heroBuildingQueueModel.EnqueuedHeroes[0];
         this.sliderSprite.fillRange = currentSummoningHeroRemainingTime / hero.summonCooldown;
     };
 

@@ -17,16 +17,11 @@ export class HeroesModel extends Component {
 
     private heroes: Hero[] = [];
 
-    public get Heroes() : Hero[] {
+    public get Heroes(): Hero[] {
         return this.heroes;
     }
 
     protected onLoad(): void {
         this.heroes = heroesJson.heroes;
-    }
-
-    protected start(): void {
-        console.log("HeroesModel heroes:");
-        console.log(this.heroes);
     }
 }

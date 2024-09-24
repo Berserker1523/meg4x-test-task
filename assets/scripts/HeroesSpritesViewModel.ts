@@ -22,9 +22,8 @@ export class HeroesSpritesViewModel extends Component {
     @property({ type: SpriteFrame })
     private hero6Sprite: SpriteFrame = null!;
 
-    public getHeroSpriteFrame(heroId: string) : SpriteFrame | null {
-        switch(heroId)
-        {
+    public getHeroSpriteFrame(heroId: string): SpriteFrame | null {
+        switch (heroId) {
             case "hero_1":
                 return this.hero1Sprite;
 
